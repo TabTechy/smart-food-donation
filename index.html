@@ -1,40 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Donation Form</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Google Sign-In</title>
+    <link rel="icon" href="data:,">
+
 </head>
+
 <body>
-    <div class="container">
-        <h2>Donate Food</h2>
-        <form id="donationForm">
-            <label>Donor Name:</label>
-            <input type="text" id="donorName" required>
 
-            <label>Food Type:</label>
-            <input type="text" id="foodType" required>
+    <div class="login-container">
+        <h1>Smart Food Donation</h1>
+        <select id="role-select">
+            <option value="donor">I am a Donor</option>
+            <option value="ngo">I am an NGO</option>
+        </select>
 
-            <label>Quantity:</label>
-            <input type="number" id="quantity" required>
+        <button id="google-login">Sign in with Google</button>
+        <p id="user-info"></p>
 
-            <label>Address:</label>
-            <input type="text" id="location" required>
+        <!-- Firebase SDK v8 -->
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 
-            <label>Pincode:</label>
-            <input type="text" id="pincode" required>
+        <script>
+            // Firebase config
+            const firebaseConfig = {
+                apiKey: "AIzaSyC9nG96rq-PKCPcYX4z0lIvcq1vglL-P8s",
+                authDomain: "smart-food-donation-f569a.firebaseapp.com",
+                projectId: "smart-food-donation-f569a",
+                storageBucket: "smart-food-donation-f569a.appspot.com",
+                messagingSenderId: "582519533186",
+                appId: "1:582519533186:web:f6654aa192b6b3a32e8e9b",
+                measurementId: "G-J2FK61EZ7F"
+            };
 
-            <label>Contact Number:</label>
-            <input type="text" id="contactNumber" required>
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
 
-            <button type="submit">Submit Donation</button>
-        </form>
+            // Sign-In logic
+            document.getElementById("google-login").addEventListener("click", function () {
+                const provider = new firebase.auth.GoogleAuthProvider();
 
-        <button id="uploadImageBtn">Upload Image</button>
-        <p id="message"></p>
+                firebase.auth().signInWithPopup(provider)
+                    .then((result) => {
+                        const user = result.user;
+                        document.getElementById("user-info").innerText = `Hello, ${user.displayName}`;
+                        console.log("User signed in:", user);
+                    })
+                    .catch((error) => {
+                        console.error("Error during login:", error.message);
+                    });
+            });
+        </script>
     </div>
-
-    <script type="module" src="donate.js"></script>
 </body>
+
 </html>
