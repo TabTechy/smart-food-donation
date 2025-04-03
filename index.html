@@ -1,104 +1,46 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donation Map</title>
-    <style>
-        #map {
-            height: 500px;
-            width: 100%;
-        }
-    </style>
-</head>
-<body>
+<!DOCTYPE html>                                                        <!DOCTYPE html>
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Smart Food Donation</title> 
+    <link rel="stylesheet" href="css/styles.css"> 
+</head> 
 
-    <h1>Food Donation Map</h1>
-    <div id="map"></div>
+<body> 
+    <h1>Welcome to the Smart Food Donation System</h1> 
+    <p>Welcome to the Smart Food Donation & Redistribution System
 
-    <script src="script.js"></script>
-    <script 
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACzToaB0biCYPC1G6CnLoIWaVVrrj1mHg
-        &callback=initMap" 
-        async defer>
-    </script>
-    <script type="module" src="script.js"></script>
+        Our mission is to bridge the gap between surplus food and those in need. By connecting donors and recipients through real-time location tracking and a simple interface, we ensure no meal goes to waste. Join us in making every meal count.</p>
+    <body>
+        <!-- Header (Top Part) -->
+        <header>
+            <h1>Smart Food Donation</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="donation.html">Signin</a></li>
+                    <li><a href="redistribution.html">maps</a></li>
+                </ul>
+            </nav>
+        </header>
+    
+        <!-- Main Content -->
+        <main>
+            <section class="hero">
+                <h2>Help Reduce Food Waste</h2>
+                <button class="btn-primary">Donate Now</button>
+            </section>
+        </main>
+    
+        <!-- Footer (Bottom Part) -->
+        <footer>
+            <p>&copy; 2025 Smart Food Donation System</p>
+        </footer>
+    </body>
+    <script src="js/script.js"></script>
 
-</body>
-</html> -->
+</body> 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donation Map</title>
-    <style>
-        #map {
-            height: 500px;
-            width: 100%;
-        }
-    </style>
-</head>
-<body>
-
-    <h1>Food Donation Map</h1>
-    <div id="map"></div>
-
-    <!-- Firebase SDK -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
-        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-firestore.js";
-
-        // Firebase Configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyBgEveamnuk5oqKhEr7pBYLs-JIVzSibX0",
-            authDomain: "smart-donation-website.firebaseapp.com",
-            projectId: "smart-donation-website",
-            storageBucket: "smart-donation-website.firebasestorage.app",
-            messagingSenderId: "43763976438",
-            appId: "1:43763976438:web:2625b277cc7bf0119e84d7"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
-        let map;
-
-        // Initialize Map
-        window.initMap = function () {
-            map = new google.maps.Map(document.getElementById("map"), {
-                center: { lat: 20.5937, lng: 78.9629 }, // Default: India
-                zoom: 5,
-            });
-
-            // Fetch donations from Firebase
-            fetchDonations();
-        };
-
-        async function fetchDonations() {
-            const querySnapshot = await getDocs(collection(db, "donations"));
-            
-            querySnapshot.forEach((doc) => {
-                const data = doc.data();
-                if (data.latitude && data.longitude) {
-                    addMarker(data.latitude, data.longitude, data.donorName);
-                }
-            });
-        }
-
-        function addMarker(lat, lng, name) {
-            new google.maps.Marker({
-                position: { lat, lng },
-                map: map,
-                title: name,
-            });
-        }
-    </script>
-
-    <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACzToaB0biCYPC1G6CnLoIWaVVrrj1mHg&callback=initMap" async defer></script>
-
-</body>
 </html>
+                                       
