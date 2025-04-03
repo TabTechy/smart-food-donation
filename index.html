@@ -1,61 +1,104 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Sign-In</title>
-    <link rel="icon" href="data:,">
-
+    <title>Donation Map</title>
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
 </head>
-
 <body>
 
-    <div class="login-container">
-        <h1>Smart Food Donation</h1>
-        <select id="role-select">
-            <option value="donor">I am a Donor</option>
-            <option value="ngo">I am an NGO</option>
-        </select>
+    <h1>Food Donation Map</h1>
+    <div id="map"></div>
 
-        <button id="google-login">Sign in with Google</button>
-        <p id="user-info"></p>
+    <script src="script.js"></script>
+    <script 
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACzToaB0biCYPC1G6CnLoIWaVVrrj1mHg
+        &callback=initMap" 
+        async defer>
+    </script>
+    <script type="module" src="script.js"></script>
 
-        <!-- Firebase SDK v8 -->
-        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-
-        <script>
-            // Firebase config
-            const firebaseConfig = {
-                apiKey: "AIzaSyC9nG96rq-PKCPcYX4z0lIvcq1vglL-P8s",
-                authDomain: "smart-food-donation-f569a.firebaseapp.com",
-                projectId: "smart-food-donation-f569a",
-                storageBucket: "smart-food-donation-f569a.appspot.com",
-                messagingSenderId: "582519533186",
-                appId: "1:582519533186:web:f6654aa192b6b3a32e8e9b",
-                measurementId: "G-J2FK61EZ7F"
-            };
-
-            // Initialize Firebase
-            firebase.initializeApp(firebaseConfig);
-
-            // Sign-In logic
-            document.getElementById("google-login").addEventListener("click", function () {
-                const provider = new firebase.auth.GoogleAuthProvider();
-
-                firebase.auth().signInWithPopup(provider)
-                    .then((result) => {
-                        const user = result.user;
-                        document.getElementById("user-info").innerText = `Hello, ${user.displayName}`;
-                        console.log("User signed in:", user);
-                    })
-                    .catch((error) => {
-                        console.error("Error during login:", error.message);
-                    });
-            });
-        </script>
-    </div>
 </body>
+</html> -->
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Map</title>
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Food Donation Map</h1>
+    <div id="map"></div>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
+        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-firestore.js";
+
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBgEveamnuk5oqKhEr7pBYLs-JIVzSibX0",
+            authDomain: "smart-donation-website.firebaseapp.com",
+            projectId: "smart-donation-website",
+            storageBucket: "smart-donation-website.firebasestorage.app",
+            messagingSenderId: "43763976438",
+            appId: "1:43763976438:web:2625b277cc7bf0119e84d7"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        let map;
+
+        // Initialize Map
+        window.initMap = function () {
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: 20.5937, lng: 78.9629 }, // Default: India
+                zoom: 5,
+            });
+
+            // Fetch donations from Firebase
+            fetchDonations();
+        };
+
+        async function fetchDonations() {
+            const querySnapshot = await getDocs(collection(db, "donations"));
+            
+            querySnapshot.forEach((doc) => {
+                const data = doc.data();
+                if (data.latitude && data.longitude) {
+                    addMarker(data.latitude, data.longitude, data.donorName);
+                }
+            });
+        }
+
+        function addMarker(lat, lng, name) {
+            new google.maps.Marker({
+                position: { lat, lng },
+                map: map,
+                title: name,
+            });
+        }
+    </script>
+
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACzToaB0biCYPC1G6CnLoIWaVVrrj1mHg&callback=initMap" async defer></script>
+
+</body>
 </html>
