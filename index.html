@@ -1,71 +1,115 @@
-<!DOCTYPE html>                                                       
+<!DOCTYPE html>
 <html lang="en"> 
 <head> 
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Smart Food Donation</title> 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
     <link rel="stylesheet" href="css/styles.css"> 
+    <style>
+        /* Optional: Inline styling for the btn-primary class */
+        .btn-primary {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #45a049;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 100px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 10px 12px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+    </style>
 </head> 
 
 <body> 
+    <!-- Header (Top Part) -->
     <header>
-            <p class="welcome-text">Welcome to the Future of Giving — Where Smart Tech Meets Heartfelt Impact</p>
-            <h1>Smart Food Donation</h1>
-    </header>
-          
-      
-        <button class="hamburger" onclick="toggleMenu()">☰</button>
-      
-        <nav id="navMenu">
-          <ul class="nav-buttons">
+        <h1>Smart Food Donation</h1>
+        <nav>
             <ul>
-                <li><a class="navbar-button" href="index.html">Home</a></li>
-                <li class="dropdown">
-                    <a class="navbar-button">Sign In ⬇</a>
-                    <div class="dropdown-content">
-                      <a href="donor.html">Sign in as Donor</a>
-                      <a href="receiver.html">Sign in as Receiver</a>
-                    </div>
-                  </li>
-                  
-                <li><a class="navbar-button" href="redistribution.html">Maps</a></li>
-                <li><a class="navbar-button" href="#features">Features</a></li>
-              
-          </ul>
-        </nav>
-      </header>
-    
-    <body>
-       
-          
-        <main>
-            <section class="hero">
-                <h2 class="fade-in">Help Reduce Food Waste</h2>
-                <button class="btn-primary fade-in">Donate Now</button>
-              </section>
-              
-            <section id="features" class="features">
-                <h2>Features</h2>
-                <p>Track donations, match locations, and reduce waste through smart mapping and real-time updates.</p>
-              </section>
-              
-        </main>
-    
-        <footer>
-            <p>&copy; 2025 Smart Food Donation System</p>
-        </footer>
-    </body>
-    <script src="js/script.js"></script>
-    <script>
-        function toggleMenu() {
-          document.getElementById('navMenu').classList.toggle('show');
-        }
-      </script>
-      
-</body> 
+                <li><a href="index.html">Home</a></li>
 
+                <!-- Sign In Dropdown -->
+                <li class="dropdown">
+                    <button class="dropbtn">Sign In</button>
+                    <div class="dropdown-content">
+                        <a href="donation.html">Donor</a>
+                        <a href="receiver.html">Receiver</a>
+                    </div>
+                </li>
+
+                <li><a href="Mapindex.html">Maps</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Intro Paragraph -->
+    <section class="intro">
+        <p>
+            Welcome to the Smart Food Donation & Redistribution System.
+            Our mission is to bridge the gap between surplus food and those in need. 
+            By connecting donors and recipients through real-time location tracking and a simple interface, 
+            we ensure no meal goes to waste. Join us in making every meal count.
+        </p>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section class="hero">
+            <h2>Help Reduce Food Waste</h2>
+            <a href="donate.html" class="btn-primary">Donate Now</a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Smart Food Donation System</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body> 
 </html>
-                                       
