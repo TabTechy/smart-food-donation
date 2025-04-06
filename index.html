@@ -1,98 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Donate Food</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background: #f2f2f2;
-    }
-    .container {
-      max-width: 500px;
-      margin: auto;
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    label {
-      display: block;
-      margin-top: 10px;
-    }
-    input, select {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    button {
-      margin-top: 20px;
-      padding: 10px;
-      width: 100%;
-      background: #28a745;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    button:hover {
-      background: #218838;
-    }
-    .link-button {
-      background-color: #007bff;
-    }
-    .link-button:hover {
-      background-color: #0056b3;
-    }
-    #message {
-      margin-top: 15px;
-      color: green;
-      text-align: center;
-    }
-  </style>
-</head>
-<body>
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Smart Food Donation</title> 
+    <link rel="stylesheet" href="css/styles.css"> 
+</head> 
 
-<div class="container">
-  <h2>Food Donation Form</h2>
-  <form id="donationForm">
-    <label for="donorName">Donor Name</label>
-    <input type="text" id="donorName" required />
+<body> 
+    <!-- Header (Top Part) -->
+    <header>
+        <h1>Smart Food Donation</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
 
-    <label for="contactNumber">Contact Number</label>
-    <input type="text" id="contactNumber" required />
+                <!-- Sign In Dropdown -->
+                <li class="dropdown">
+                    <button class="dropbtn">Sign In</button>
+                    <div class="dropdown-content">
+                        <a href="donation.html">Donor</a>
+                        <a href="receiver.html">Receiver</a>
+                    </div>
+                </li>
 
-    <label for="location">Location</label>
-    <input type="text" id="location" required />
+                <li><a href="redistribution.html">Maps</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <label for="pincode">Pincode</label>
-    <input type="text" id="pincode" required />
+    <!-- Intro Paragraph -->
+    <section class="intro">
+        <p>
+            Welcome to the Smart Food Donation & Redistribution System.
+            Our mission is to bridge the gap between surplus food and those in need. 
+            By connecting donors and recipients through real-time location tracking and a simple interface, 
+            we ensure no meal goes to waste. Join us in making every meal count.
+        </p>
+    </section>
 
-    <label for="foodType">Food Type</label>
-    <input type="text" id="foodType" required />
+    <!-- Main Content -->
+    <main>
+        <section class="hero">
+            <h2>Help Reduce Food Waste</h2>
+            <button class="btn-primary">Donate Now</button>
+        </section>
+    </main>
 
-    <label for="quantity">Quantity</label>
-    <input type="number" id="quantity" required />
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Smart Food Donation System</p>
+    </footer>
 
-    <button type="submit">Submit Donation</button>
-  </form>
-
-  <!-- Button to go to food.html -->
-  <button class="link-button" onclick="window.location.href='food.html'">Upload image</button>
-
-  <div id="message"></div>
-</div>
-
-<script type="module" src="donate.js"></script>
-</body>
+    <script src="js/script.js"></script>
+</body> 
 </html>
-                   
