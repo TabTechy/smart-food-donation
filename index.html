@@ -1,76 +1,98 @@
-<!DOCTYPE html>                                                        
-<html lang="en"> 
-<head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Smart Food Donation</title> 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Donate Food</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f2f2f2;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      width: 100%;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #218838;
+    }
+    .link-button {
+      background-color: #007bff;
+    }
+    .link-button:hover {
+      background-color: #0056b3;
+    }
+    #message {
+      margin-top: 15px;
+      color: green;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
 
-    <link rel="stylesheet" href="css/styles.css"> 
-</head> 
+<div class="container">
+  <h2>Food Donation Form</h2>
+  <form id="donationForm">
+    <label for="donorName">Donor Name</label>
+    <input type="text" id="donorName" required />
 
-<body> 
-    <header>
-        <header>
-            <p class="welcome-text">Welcome to the Future of Giving — Where Smart Tech Meets Heartfelt Impact</p>
-            <h1>Smart Food Donation</h1>
-            <!-- navigation buttons here -->
-          </header>
-          
-      
-        <!-- Hamburger Button for Small Screens -->
-        <button class="hamburger" onclick="toggleMenu()">☰</button>
-      
-        <!-- Navigation -->
-        <nav id="navMenu">
-          <ul class="nav-buttons">
-            <ul>
-                <li><a class="navbar-button" href="index.html">Home</a></li>
-                <li class="dropdown">
-                    <a class="navbar-button">Sign In ⬇</a>
-                    <div class="dropdown-content">
-                      <a href="donor.html">Sign in as Donor</a>
-                      <a href="receiver.html">Sign in as Receiver</a>
-                    </div>
-                  </li>
-                  
-                <li><a class="navbar-button" href="redistribution.html">Maps</a></li>
-                <li><a class="navbar-button" href="#features">Features</a></li>
-              
-          </ul>
-        </nav>
-      </header>
-    
-    <body>
-       
-          
-        <main>
-            <section class="hero">
-                <h2 class="fade-in">Help Reduce Food Waste</h2>
-                <button class="btn-primary fade-in">Donate Now</button>
-              </section>
-              
-            <section id="features" class="features">
-                <h2>Features</h2>
-                <p>Track donations, match locations, and reduce waste through smart mapping and real-time updates.</p>
-              </section>
-              
-        </main>
-    
-        <!-- Footer (Bottom Part) -->
-        <footer>
-            <p>&copy; 2025 Smart Food Donation System</p>
-        </footer>
-    </body>
-    <script src="js/script.js"></script>
-    <script>
-        function toggleMenu() {
-          document.getElementById('navMenu').classList.toggle('show');
-        }
-      </script>
-      
-</body> 
+    <label for="contactNumber">Contact Number</label>
+    <input type="text" id="contactNumber" required />
 
+    <label for="location">Location</label>
+    <input type="text" id="location" required />
+
+    <label for="pincode">Pincode</label>
+    <input type="text" id="pincode" required />
+
+    <label for="foodType">Food Type</label>
+    <input type="text" id="foodType" required />
+
+    <label for="quantity">Quantity</label>
+    <input type="number" id="quantity" required />
+
+    <button type="submit">Submit Donation</button>
+  </form>
+
+  <!-- Button to go to food.html -->
+  <button class="link-button" onclick="window.location.href='food.html'">Go to Image Upload Page</button>
+
+  <div id="message"></div>
+</div>
+
+<script type="module" src="donate.js"></script>
+</body>
 </html>
-                                                                              
+                   
