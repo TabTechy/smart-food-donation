@@ -1,11 +1,15 @@
-// Select the Button
-const donateButton = document.querySelector('.btn-primary');
+document.addEventListener('DOMContentLoaded', function () {
+    const dropBtn = document.querySelector('.dropbtn');
+    const dropdownContent = document.querySelector('.dropdown-content');
 
-// Add a Click Event (What happens when clicked)
-donateButton.addEventListener('click', function() {
-    alert('Thank you for your interest in donating food! 😊');
-});
-// Change Background Color on Click
-donateButton.addEventListener('click', function() {
-    document.body.style.backgroundColor = "#f5e6ca"; // Light Beige
+    // Toggle dropdown on button click
+    dropBtn.addEventListener('click', function (event) {
+        event.stopPropagation(); // Prevents closing when clicking the button
+        dropdownContent.classList.toggle('show');
+    });
+
+    // Close dropdown if clicked outside
+    document.addEventListener('click', function () {
+        dropdownContent.classList.remove('show');
+    });
 });
