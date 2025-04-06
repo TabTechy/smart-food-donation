@@ -58,6 +58,12 @@
       color: green;
       text-align: center;
     }
+    #freshness-status {
+      margin-top: 10px;
+      text-align: center;
+      color: #28a745;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -67,6 +73,7 @@
   
   <!-- Upload Image First -->
   <button class="link-button" onclick="window.location.href='food.html'">Upload Food Image</button>
+  <div id="freshness-status"></div>
 
   <form id="donationForm">
     <label for="donorName">Donor Name</label>
@@ -94,6 +101,16 @@
 </div>
 
 <script type="module" src="donate.js"></script>
+
+<!-- Script to check query parameter -->
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const freshnessPassed = urlParams.get('fresh');
+
+  if (freshnessPassed === 'true') {
+    document.getElementById('freshness-status').textContent = '✅ Freshness check done';
+  }
+</script>
+
 </body>
 </html>
-

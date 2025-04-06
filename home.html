@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Food Donation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #4CAF50;
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+            width: 100%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-radius: 0;
+        }
+
+        header h1 {
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #fff;
+            color: #4CAF50;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .hero {
+            background-color: #fff;
+            padding: 40px;
+            text-align: center;
+            margin-top: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            color: #4CAF50;
+        }
+
+        .homepage-container h1,
+        .intro-text,
+        .btn-primary {
+            color: white;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #dddddd;
+            border-radius: 10px;
+        }
+
+        .mission-text {
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style-type: none;
+            padding: 0;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .nav-button {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: white;
+            color: green;
+            font-weight: bold;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background-color: #3e8e41;
+            color: white;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            #navMenu {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                background-color: green;
+                margin-top: 10px;
+                border-radius: 10px;
+            }
+
+            #navMenu.show {
+                display: flex;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .nav-button {
+                background-color: white;
+                color: green;
+                width: 80%;
+                text-align: center;
+            }
+
+            .nav-button:hover {
+                background-color: #3e8e41;
+                color: white;
+            }
+        }
+
+        .hero {
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwUiCCGjv4xS32QKQMeUqpXS3NNGtXUuTVkA&s);
+            /* Update the path as needed */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 80px 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .hero h2,
+        .hero button {
+            color: white;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .btn-primary {
+            font-size: 20px;
+            padding: 14px 28px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+
+        .navbar-button {
+            font-size: 16px;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #ffffff;
+            color: #28a745;
+            border: 2px solid #28a745;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .navbar-button:hover {
+            background-color: #28a745;
+            color: white;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .features {
+            padding: 40px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #28a745;
+            padding: 10px 16px;
+            text-decoration: none;
+            display: block;
+            font-weight: bold;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        body {
+            padding: 60px 20px 40px 20px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .navbar-button {
+            background-color: white;
+            color: #4CAF50;
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            text-decoration: none;
+        }
+
+        .navbar-button:hover {
+            background-color: #e5e5e5;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            list-style: none;
+            flex-wrap: wrap;
+
+            header {
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+            }
+        }
+
+        .welcome-text {
+            font-size: 24px;
+            font-weight: 500;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        header {
+            width: 100vw;
+        }
+
+        header {
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <p class="welcome-text">Welcome to the Future of Giving — Where Smart Tech Meets Heartfelt Impact</p>
+        <h1>Smart Food Donation</h1>
+    </header>
+
+
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+    <nav id="navMenu">
+        <ul class="nav-buttons">
+            <ul>
+                <li><a class="navbar-button" href="home.html">Home</a></li>
+                <li class="dropdown">
+                    <a class="navbar-button">Sign In ⬇</a>
+                    <div class="dropdown-content">
+                        <a href="#" id="signInDonor">Sign in as Donor</a>
+                        <a href="#" id="signInReceiver">Sign in as Receiver</a>
+
+                    </div>
+                </li>
+
+                <li><a class="navbar-button" href="Mapindex.html">Maps</a></li>
+                <li><a class="navbar-button" href="#features">Features</a></li>
+
+            </ul>
+    </nav>
+    </header>
+
+    <body>
+
+
+        <main>
+            <section class="hero">
+                <h2 class="fade-in">Help Reduce Food Waste</h2>
+                <button class="btn-primary fade-in" id="donateNowBtn">Donate Now</button>
+            </section>
+
+            <section id="features" class="features">
+                <h2>Features</h2>
+                <p>Track donations, match locations, and reduce waste through smart mapping and real-time updates.</p>
+            </section>
+
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Smart Food Donation System</p>
+        </footer>
+    </body>
+    <!-- <script src="public/home.js"></script> -->
+    <script>
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('show');
+        }
+    </script>
+
+    <script>
+        // Handle donor sign-in click
+        document.getElementById("signInDonor").addEventListener("click", function (e) {
+            e.preventDefault();
+            window.location.href = "don.html";
+        });
+
+        // Handle receiver sign-in click
+        document.getElementById("signInReceiver").addEventListener("click", function (e) {
+            e.preventDefault();
+            window.location.href = "ngo.html";
+        });
+
+        document.getElementById("donateNowBtn").addEventListener("click", function () {
+            window.location.href = "don.html";
+        });
+    </script>
+
+
+</body>
+
+</html>

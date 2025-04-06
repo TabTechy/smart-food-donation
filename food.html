@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Food Donation - Freshness Check</title>
+    <title>AI Freshness Check</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.dom.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
@@ -16,7 +16,7 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #b3d9ff;
+            background-color: #f3f3ed;
         }
 
         h1{
@@ -97,10 +97,16 @@
             display: none;
         }
     </style>
+    <script>
+        window.addEventListener("error", function (e) {
+            console.error("Script error:", e.message, "at", e.filename);
+        });
+    </script>
+    
 </head>
 
 <body>
-    <h1>Smart Food Donation - Freshness Check</h1>
+    <h1>AI Freshness Check</h1>
     <div class="container">
         <button id="webcam-btn">Use Webcam</button>
         <button id="captureBtn">Capture</button>
@@ -110,7 +116,7 @@
         <canvas id="canvas" style="display:none;"></canvas>
         <div id="image-preview"></div>
         <p id="error-message" class="error-message">❌ No stale food donation allowed!</p>
-        <button class="donate-btn" id="donate-btn" onclick="window.location.href='donate.html'">Proceed to Donation</button>
+        <button class="donate-btn" id="donate-btn">Proceed to Donation</button>
     </div>
 
     <div id="webcam-container"></div>
@@ -273,6 +279,12 @@
             await init();
         };
     </script>
+    <script>
+        document.getElementById("donate-btn").addEventListener("click", function () {
+          // Redirect with freshness status
+          window.location.href = "donate.html?fresh=true";
+        });
+      </script>
 </body>
 
 </html>
