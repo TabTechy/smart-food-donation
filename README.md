@@ -58,5 +58,8 @@ This project is hosted on **Firebase Hosting** for online accessibility.
 2. Open `home.html` in your browser  
 3. Sign in and start donating!
 
----
+
+```markdown
+Try Smart Food Donation here: https://smart-food-donation-f569a.web.app
+
 
